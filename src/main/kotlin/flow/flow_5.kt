@@ -7,6 +7,7 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.runBlocking
 
 fun foo5(): Flow<Int> = flow {
+    println("Flow started")
     for (i in 1..3) {
         delay(100)
         emit(i)

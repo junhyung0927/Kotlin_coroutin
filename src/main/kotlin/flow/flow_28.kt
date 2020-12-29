@@ -3,6 +3,7 @@ package flow
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.*
 
+//Launching flow
 fun events(): Flow<Int> = (1..3).asFlow().onEach { delay(100) }
 
 //fun main() = runBlocking<Unit> {
@@ -24,7 +25,8 @@ fun main() = runBlocking<Unit> {
     println("Done")
 
     /*
-    launchIn 종단 연산자를 사용하면 플로우의 수집을 다른 코루틴에서 수행할 수 있으며
-    이를 통해 이후에 작성된 코드들이 곧바로 실행되도록 할 수 있다.
+    launchIn 종단 연산자를 사용하면 플로우의 수집을 다른 코루틴에서 수행할 수 있으며,
+    이를 통해 collect를 launchIn으로 대체함으로서 별도의 코루틴에서 flow의 collection을 실행할 수 있게 되므로
+    이후에 작성된 코드들이 곧바로 실행되도록 할 수 있다.
      */
 }

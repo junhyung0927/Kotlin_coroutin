@@ -3,6 +3,12 @@ package flow
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.*
 
+/*
+    Flow Completion
+    flow의 collect가 완료되었을 때 어떤 조치가 필요할 수 있다.
+    이것을 명령과 선언 두 가지 방법으로 구현할 수 있다.
+ */
+
 fun foo24(): Flow<Int> = (1..3).asFlow()
 
 //Imperative(명령형) finally block
@@ -14,7 +20,7 @@ fun main() = runBlocking<Unit> {
     }
 
     /*
-    try/catch에 추가적으로 수집 종료 시 실행할 코드를 finally 블록을 통해 정의할 수 있다.
+    try/catch 외에도 collector는 collect 완료 시 final 블록을 사용해 작업을 실행할 수 있다.
      */
 }
 

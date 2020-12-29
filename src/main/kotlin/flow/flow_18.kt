@@ -3,6 +3,7 @@ package flow
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.*
 
+//다중 flow 구성 - Combine
 fun main() {
     zipCurrentTimeMillis()
     combineCurrentTimeMillis()
@@ -31,4 +32,10 @@ fun combineCurrentTimeMillis() = runBlocking<Unit> {
         .collect { value ->
             println("$value at ${System.currentTimeMillis() - startTime} ms from start")
         }
+
+    /*
+    flow가 변수나 연산의 가장 최근 값을 나타내는 경우 해당 flow의 가장 최근 값에 따라 달라지는 계산을 수행하고
+    upstream flow가 값을 방출할 때마다 이를 다시 계산해야 할 수 있다.
+    해당 연산자 계열을 combine이라 한다.
+     */
 }

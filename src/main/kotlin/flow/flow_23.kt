@@ -3,6 +3,7 @@ package flow
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.*
 
+//Transparent catch
 fun foo23(): Flow<Int> = flow {
     for (i in 1..3) {
         println("Emitting $i")
@@ -12,7 +13,7 @@ fun foo23(): Flow<Int> = flow {
 
 fun main() = runBlocking<Unit> {
     foo23()
-        .catch { e ->println("Caught $e") } //does not catch downsteam exceptions
+        .catch { e ->println("Caught $e") } //does not catch downstream exceptions
         .collect { value ->
             check(value <= 1) { "Collected $value" }
             println(value)

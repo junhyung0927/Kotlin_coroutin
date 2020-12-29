@@ -10,7 +10,7 @@ import kotlinx.coroutines.runBlocking
 fun foo4(): Flow<Int> = flow{
     for(i in 1..3) {
         delay(100)
-        emit(1)
+        emit(i)
     }
 }
 
